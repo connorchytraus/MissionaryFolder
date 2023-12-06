@@ -31,3 +31,6 @@ def goalsPageView(request):
 
 def setGoal(request):
     return render(request, "homepages/setGoal.html")
+
+def resourcesPageView(request):
+        return render(request, "homepages/resources.html")

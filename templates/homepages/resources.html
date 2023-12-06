@@ -1,0 +1,160 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>MyResources</title>
+    <!-- Favicon-->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'img/favicon.ico' %}"
+    />
+    <!-- Font Awesome icons (free version)-->
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+  </head>
+  <body id="page-top">
+    <!-- Navigation-->
+    <nav
+      class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
+      id="mainNav"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="/">MyHealth</a>
+        <button
+          class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'journal' %}"
+                >Journal</a
+              >
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'goals'%}"
+                >Goals</a
+              >
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'resources'%}"
+                >Resources</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<br>
+<br>
+<br><br>
+<!-- Page content -->
+<div class="container mt-3">
+    <h1>Mental Health Resources</h1>
+    <!-- Your journal content goes here -->
+</div>
+<br>
+<!-- Goal Cards -->
+    <div class="row mt-3" id="journalEntries">
+
+</div>
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f5f5f5;
+    }
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        margin: 10px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        color: #333;
+    }
+    a {
+        text-decoration: none;
+        color: #007bff;
+    }
+</style>
+</head>
+<body>
+<section>
+    <div class="card">
+        <h2>LDS Family Services</h2>
+        <a href="https://churchofjesuschrist.org" target="_blank">Click Here</a>
+    </div>
+    
+    <div class="card">
+        <h2>Counseling Services</h2>
+        <a href="https://providentliving.churchofjesuschrist.org/lds-family-services/counseling?lang=eng" target="_blank">Click Here</a>
+    </div>
+    
+    <div class="card">
+        <h2>The Church on Mental Health</h2>
+        <a href="https://www.churchofjesuschrist.org/topics/mental-health?lang=eng" target="_blank">Click Here</a>
+    </div>
+    
+    <div class="card">
+        <h2>Addiction Recovery</h2>
+        <a href="https://addictionrecovery.churchofjesuschrist.org/" target="_blank">Click Here</a>
+    </div>
+    
+    <div class="card">
+        <h2>Additional Study Material</h2>
+        <a href="https://www.churchofjesuschrist.org/study/magazines/ensign/2022/08?lang=eng" target="_blank">Click Here</a>
+    </div>
+</section>
+</body>
+<!-- Additional content or other sections can go here -->
+
+</div>
+
+
+
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+
+
+<!-- Add this modal structure before the closing body tag -->
+
+</body>
+</html>
