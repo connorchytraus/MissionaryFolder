@@ -8,7 +8,7 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>MyJournal</title>
+    <title>MyGoals</title>
     <!-- Favicon-->
     <link
       rel="icon"
@@ -72,10 +72,10 @@
               >
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'goals' %}"
-                >Goals</a
-              >
-            </li>
+                <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#goals"
+                  >Goals</a
+                >
+              </li>
           </ul>
         </div>
       </div>
@@ -86,34 +86,15 @@
 <br><br>
 <!-- Page content -->
 <div class="container mt-3">
-    <h1>My Journal</h1>
+    <h1>My Goals</h1>
     <!-- Your journal content goes here -->
 </div>
 <br>
 <div>
   <button class="btn btn-primary rounded" data-toggle="modal" data-target="#addNewModal">Add New</button>
 </div>
-<!-- Journal Entry Cards -->
+<!-- Goal Cards -->
     <div class="row mt-3" id="journalEntries">
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h4 class="card-title">Journal Entry 6/2/2018</h4>
-                    <p class="card-text">this is so hard.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h4 class="card-title">Journal Entry 6/1/2018</h4>
-                    <p class="card-text">my companion sucks.</p>
-                </div>
-            </div>
-        </div>
-
-    <!-- Add more cards as needed -->
 
 </div>
 
@@ -133,35 +114,35 @@
 <!-- Your custom scripts if any -->
 <!-- <script src="{% static 'js/custom.js' %}"></script> -->
 <script>
-  function submitForm() {
-      // Get the input value
-      var text = document.getElementById('entryText').value;
-      var title = document.getElementById('entryTitle').value;
-      console.log(text);
-      console.log(title);
-  
-      // Validate the input (add more validation as needed)
-      if (!text) {
-          alert('Please create an entry.');
-          return;
-      }
-  
-      // Create a new card element with dynamic content
-      var card = document.createElement('div');
-      card.className = 'col-lg-4 col-md-6 mb-4';
-      card.innerHTML = '<div class="card h-100"><div class="card-body"><h4 class="card-title">' + title + '</h4><p class="card-text">' + text + '</p></div></div>';
-  
-      // Add the new card to the page
-      var journalEntries = document.getElementById('journalEntries');
-      journalEntries.appendChild(card);
-  
-      // Hide the modal
-      $('#addNewModal').modal('hide');
-  
-      // Clear the form
-      document.getElementById('journalForm').reset();
-  }
-  
+    function submitForm() {
+        // Get the input value
+        var goalText = document.getElementById('entryTitle').value;
+
+        var uniqueId = new Date().getTime();
+    
+        // Validate the input (add more validation as needed)
+        if (!goalText) {
+            alert('Please enter a goal.');
+            return;
+        }
+
+    
+        // Create a new card element with dynamic content
+        var card = document.createElement('div');
+        card.className = 'col-lg-4 col-md-6 mb-4';
+        card.innerHTML = '<div class="card h-100"><div class="card-body"><h4 class="card-title">' + goalText + '</h4><input type="checkbox" class="form-check-input" id="checkbox_' + uniqueId + '"> <label class="form-check-label" for="checkbox_' + uniqueId + '">Complete</label></div></div>';
+    
+        // Add the new card to the page
+        var journalEntries = document.getElementById('journalEntries');
+        journalEntries.appendChild(card);
+    
+        // Hide the modal
+        $('#addNewModal').modal('hide');
+    
+        // Clear the form
+        document.getElementById('journalForm').reset();
+    }
+    
 </script>
 
 <!-- Add this modal structure before the closing body tag -->
@@ -169,22 +150,20 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addNewModalLabel">Add New Journal Entry</h5>
+        <h5 class="modal-title" id="addNewModalLabel">Add A New Goal</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form id="journalForm">
-          <div class="form-group">
-            <label for="entryTitle">Title:</label>
-            <input type="text" class="form-control" id="entryTitle" required>
-          </div>
-          <div class="form-group">
-            <label for="entryText">Text:</label>
-            <textarea class="form-control" id="entryText" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" onclick="submitForm()">Save Entry</button>
+        <form action="#" method="post" id="journalForm">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="entryTitle">Goal:</label>
+                <input type="text" class="form-control" id="entryTitle" name="goal" required>
+            </div>
+            <br>
+            <button type="button" class="btn btn-primary" onclick="submitForm()">Save</button>
         </form>
       </div>
     </div>

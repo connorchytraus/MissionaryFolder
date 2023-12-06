@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from MissionaryApp.views import add_goal_view
+
 # from django.conf import settings
 # from django.conf.urls.static import static
 
 urlpatterns = [
-    path("", include('MissionaryApp.urls')),
-    path('admin/', admin.site.urls),
+    path("", include("MissionaryApp.urls")),
+    path("admin/", admin.site.urls),
+    path("goals/addGoal/", add_goal_view, name="add_goal"),
 ]
